@@ -1,12 +1,20 @@
 package vitalSigns;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class HeartRate {
 	
 	private float heartRate;
 	
+	/**
+	 * Simulate a heart-rate sensor by creating a random number.<br>
+	 * Note that this constructor should not be used unless a true random
+	 * number is desired. The method simply calls Math.random() and multiplies
+	 * that value by 10.
+	 */
 	public HeartRate() {
-		RandomVitalGenerator vitals = new RandomVitalGenerator();
-		this.heartRate = vitals.getVitals();
+		this.heartRate = (float)Math.random()*10;
 	}
 	
 	/**
@@ -17,8 +25,7 @@ public class HeartRate {
 	 * @param max <em>float</em> The maximum the heart-rate should be
 	 */
 	public HeartRate(float min, float max) {
-		RandomVitalGenerator vitals = new RandomVitalGenerator(min, max);
-		this.heartRate = vitals.getVitals();
+		
 	}
 	
 	public void setHeartRate(float heartRate) {
@@ -27,6 +34,16 @@ public class HeartRate {
 	
 	public float getHeartRate() {
 		return heartRate;
+	}
+	
+	/**
+	 * Hello there
+	 */
+	@Override
+	public String toString() {
+		DecimalFormat df = new DecimalFormat("#.000");
+		df.setRoundingMode(RoundingMode.DOWN);
+		return df.format(this.heartRate);
 	}
 
 }
