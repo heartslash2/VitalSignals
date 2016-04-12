@@ -50,9 +50,16 @@ public class HeartRate {
 					 float actualMaximum, 
 					 float validRangeMinimum,
 					 float validRangeMaximum) {
+		// set valid range
 		this.validRange[0] = validRangeMinimum;
 		this.validRange[1] = validRangeMaximum;
+		/* generate random number in range [actualMinimum, actualMaximum]
+		 * the number is generated using the standard formula for ranges, that is
+		 * (rand * (max - min)) + min
+		 * uses Math.random(), which returns double, so cast to float after all calculations
+		 */
 		this.actualHeartRate = (float)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
+		// set status based on validity
 		isValid();
 	}
 	
