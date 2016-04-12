@@ -107,13 +107,15 @@ public class HeartRate {
 	}
 	
 	/**
-	 * Hello there
+	 * Return the status of the heart-rate as well as the actual heart-rate, truncated to 3
+	 * decimal places
 	 */
 	@Override
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("#.000");
 		df.setRoundingMode(RoundingMode.DOWN);
-		return df.format(this.actualHeartRate);
+		String heartRate = df.format(this.actualHeartRate);
+		return this.status + " " + heartRate;
 	}
 
 }
