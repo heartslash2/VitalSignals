@@ -6,9 +6,8 @@ public class GlucoseLevel {
 	private int[] validRange;
 	private String status;
 
-	// 70 to 180
-
 	public GlucoseLevel() {
+		// http://www.webmd.com/diabetes/guide/normal-blood-sugar-levels-chart-adults
 		this(40, 210, 70, 180);
 	}
 

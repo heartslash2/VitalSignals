@@ -7,6 +7,7 @@ public class BodyTemperature {
 	private String status;
 	
 	public BodyTemperature() {
+		// https://www.nlm.nih.gov/medlineplus/ency/article/001982.htm
 		this(97, 99, 91, 105);
 	}
 	
