@@ -2,18 +2,79 @@ package vitalSigns;
 
 public class GlucoseLevel {
 
-	private float glucoseLevel;
-	
+	private int actualGlucoseLevel;
+	private int[] validRange;
+	private String status;
+
+	// 70 to 180
+
 	public GlucoseLevel() {
-		this.glucoseLevel = (float)Math.random()*10;
+		this(40, 210, 70, 180);
 	}
-	
-	public void setGlucoseLevel(float glucoseLevel) {
-		this.glucoseLevel = glucoseLevel;
+
+	public GlucoseLevel(int actualMinimum, int actualMaximum,
+			int validRangeMinimum, int validRangeMaximum) {
+		this.validRange[0] = validRangeMinimum;
+		this.validRange[1] = validRangeMaximum;
+		this.actualGlucoseLevel = (int)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
+		isValid();
 	}
-	
-	public float getGlucoseLevel() {
-		return glucoseLevel;
+
+	private void isValid() {
+		// is actualGlucoseLevel in valid range?
+		if (this.actualGlucoseLevel > this.validRange[0]
+				&& this.actualGlucoseLevel < this.validRange[1]) {
+			setStatus("normal");
+			// is actualGlucoseLevel too low?
+		} else if (this.actualGlucoseLevel < this.validRange[0]) {
+			setStatus("low");
+			// is actualGlucoseLevel too high?
+		} else if (this.actualGlucoseLevel > this.validRange[1]) {
+			setStatus("high");
+		}
 	}
-	
+
+	public void setGlucoseLevel(int actualGlucoseLevel) {
+		this.actualGlucoseLevel = actualGlucoseLevel;
+	}
+
+	public int getGlucoseLevel() {
+		return actualGlucoseLevel;
+	}
+
+	/**
+	 * Setter for <em>validRange</em> by float array
+	 * 
+	 * @param validRange
+	 *            The range of valid heart-rates for this sensor
+	 */
+	public void setValidRange(int[] validRange) {
+		this.validRange = validRange;
+	}
+
+	/**
+	 * Setter for <em>validRange</em> by float values
+	 * 
+	 * @param minimumValidRange
+	 *            The minimum number of the validRange
+	 * @param maximumValidRange
+	 *            The maximum number of the validRange
+	 */
+	public void setValidRange(int minimumValidRange, int maximumValidRange) {
+		this.validRange[0] = minimumValidRange;
+		this.validRange[1] = maximumValidRange;
+	}
+
+	public int[] getValidRange() {
+		return validRange;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
 }
