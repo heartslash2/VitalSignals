@@ -34,11 +34,11 @@ public class GlucoseLevel {
 		}
 	}
 
-	public void setGlucoseLevel(int actualGlucoseLevel) {
+	public void setActualGlucoseLevel(int actualGlucoseLevel) {
 		this.actualGlucoseLevel = actualGlucoseLevel;
 	}
 
-	public int getGlucoseLevel() {
+	public int getActualGlucoseLevel() {
 		return actualGlucoseLevel;
 	}
 

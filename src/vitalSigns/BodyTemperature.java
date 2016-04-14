@@ -2,18 +2,18 @@ package vitalSigns;
 
 public class BodyTemperature {
 
-	private float bodyTemperature;
+	private float actualBodyTemperature;
 	
 	public BodyTemperature() {
-		this.bodyTemperature = (float)Math.random()*10;
+		this.actualBodyTemperature = (float)Math.random()*10;
 	}
 	
-	public void setBodyTemperature(float bodyTemperature) {
-		this.bodyTemperature = bodyTemperature;
+	public void setActualBodyTemperature(float actualBodyTemperature) {
+		this.actualBodyTemperature = actualBodyTemperature;
 	}
 	
-	public float getBodyTemperature() {
-		return bodyTemperature;
+	public float getActualBodyTemperature() {
+		return actualBodyTemperature;
 	}
 	
 }
