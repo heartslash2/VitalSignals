@@ -1,7 +1,5 @@
 package vitalSigns;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 /**
  * The <em>actualHeartRate</em> class is used to represent a heart-rate sensor. 
@@ -82,16 +80,38 @@ public class HeartRate {
 		}
 	}
 	
+	/**
+	 * Setter for <em>actualHeartRate</em>
+	 * @param actualHeartRate The reading of the heart-rate sensor
+	 */
 	public void setActualHeartRate(float actualHeartRate) {
 		this.actualHeartRate = actualHeartRate;
 	}
 	
+	/**
+	 * Getter for <em>actualHeartRate</em>
+	 * @return <em>actualHeartRate</em> the reading of the heart-rate sensor
+	 */
 	public float getActualHeartRate() {
 		return actualHeartRate;
 	}
 	
+	/**
+	 * Setter for <em>validRange</em> by float array
+	 * @param validRange The range of valid heart-rates for this sensor
+	 */
 	public void setValidRange(float[] validRange) {
 		this.validRange = validRange;
+	}
+	
+	/**
+	 * Setter for <em>validRange</em> by float values
+	 * @param minimumValidRange The minimum number of the validRange
+	 * @param maximumValidRange The maximum number of the validRange
+	 */
+	public void setValidRange(float minimumValidRange, float maximumValidRange) {
+		this.validRange[0] = minimumValidRange;
+		this.validRange[1] = maximumValidRange;
 	}
 	
 	public float[] getValidRange() {
@@ -104,18 +124,6 @@ public class HeartRate {
 	
 	public String getStatus() {
 		return status;
-	}
-	
-	/**
-	 * Return the status of the heart-rate as well as the actual heart-rate, truncated to 3
-	 * decimal places
-	 */
-	@Override
-	public String toString() {
-		DecimalFormat df = new DecimalFormat("#.000");
-		df.setRoundingMode(RoundingMode.DOWN);
-		String heartRate = df.format(this.actualHeartRate);
-		return this.status + " " + heartRate;
-	}
+	}	
 
 }

@@ -1,8 +1,5 @@
 package vitalSigns;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 public class BodyTemperature {
 
 	private float bodyTemperature;
@@ -17,16 +14,6 @@ public class BodyTemperature {
 	
 	public float getBodyTemperature() {
 		return bodyTemperature;
-	}
-	
-	/**
-	 * Hello there
-	 */
-	@Override
-	public String toString() {
-		DecimalFormat df = new DecimalFormat("#.000");
-		df.setRoundingMode(RoundingMode.DOWN);
-		return df.format(this.bodyTemperature);
 	}
 	
 }
