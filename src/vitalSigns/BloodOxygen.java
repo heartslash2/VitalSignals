@@ -33,7 +33,7 @@ public class BloodOxygen {
 	 */
 	private void isValid() {
 		// is actualHeartRate in valid range?
-		if (this.actualBloodOxygen > this.validRange[0] && this.actualBloodOxygen < this.validRange[1]) {
+		if (this.actualBloodOxygen >= this.validRange[0] && this.actualBloodOxygen <= this.validRange[1]) {
 			setStatus("normal");
 			// is actualHeartRate too low?
 		} else if (this.actualBloodOxygen < this.validRange[0]) {
@@ -48,7 +48,7 @@ public class BloodOxygen {
 		this.actualBloodOxygen = actualBloodOxygen;
 	}
 
-	public float getActualBloodOxygen() {
+	public int getActualBloodOxygen() {
 		return actualBloodOxygen;
 	}
 	

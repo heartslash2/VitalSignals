@@ -28,14 +28,14 @@ public class BloodPressure {
 	}
 
 	private void isValid() {
-		if (actualBloodPressure[0] > validRange[0][0] && actualBloodPressure[0] < validRange[1][0]) {
+		if (actualBloodPressure[0] >= validRange[0][0] && actualBloodPressure[0] <= validRange[1][0]) {
 			setStatus("normal/");
 		} else if (actualBloodPressure[0] < validRange[0][0]) {
 			setStatus("low/");
 		} else if (actualBloodPressure[0] > validRange[1][0]) {
 			setStatus("high/");
 		}
-		if (actualBloodPressure[1] > validRange[0][1] && actualBloodPressure[0] < validRange[1][1]) {
+		if (actualBloodPressure[1] >= validRange[0][1] && actualBloodPressure[1] <= validRange[1][1]) {
 			setStatus(getStatus()+"normal");
 		} else if (actualBloodPressure[1] < validRange[0][1]) {
 			setStatus(getStatus()+"low");

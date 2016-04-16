@@ -3,7 +3,7 @@ package vitalSigns;
 public class GlucoseLevel {
 
 	private int actualGlucoseLevel;
-	private int[] validRange;
+	private int[] validRange = new int[2];
 	private String status;
 
 	public GlucoseLevel() {
@@ -11,18 +11,16 @@ public class GlucoseLevel {
 		this(40, 210, 70, 180);
 	}
 
-	public GlucoseLevel(int actualMinimum, int actualMaximum,
-			int validRangeMinimum, int validRangeMaximum) {
+	public GlucoseLevel(int actualMinimum, int actualMaximum, int validRangeMinimum, int validRangeMaximum) {
 		this.validRange[0] = validRangeMinimum;
 		this.validRange[1] = validRangeMaximum;
-		this.actualGlucoseLevel = (int)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
+		this.actualGlucoseLevel = (int) ((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
 		isValid();
 	}
 
 	private void isValid() {
 		// is actualGlucoseLevel in valid range?
-		if (this.actualGlucoseLevel > this.validRange[0]
-				&& this.actualGlucoseLevel < this.validRange[1]) {
+		if (this.actualGlucoseLevel >= this.validRange[0] && this.actualGlucoseLevel <= this.validRange[1]) {
 			setStatus("normal");
 			// is actualGlucoseLevel too low?
 		} else if (this.actualGlucoseLevel < this.validRange[0]) {

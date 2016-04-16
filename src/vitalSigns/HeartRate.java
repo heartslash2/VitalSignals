@@ -68,8 +68,8 @@ public class HeartRate {
 	 */
 	private void isValid() {
 		// is actualHeartRate in valid range?
-		if (this.actualHeartRate > this.validRange[0] 
-				&& this.actualHeartRate < this.validRange[1]) {
+		if (this.actualHeartRate >= this.validRange[0] 
+				&& this.actualHeartRate <= this.validRange[1]) {
 			setStatus("normal");
 		// is actualHeartRate too low?
 		} else if (this.actualHeartRate < this.validRange[0]) {
@@ -92,7 +92,7 @@ public class HeartRate {
 	 * Getter for <em>actualHeartRate</em>
 	 * @return <em>actualHeartRate</em> the reading of the heart-rate sensor
 	 */
-	public float getActualHeartRate() {
+	public int getActualHeartRate() {
 		return actualHeartRate;
 	}
 	

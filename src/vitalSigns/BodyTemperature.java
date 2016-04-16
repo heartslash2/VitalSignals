@@ -21,8 +21,8 @@ public class BodyTemperature {
 	
 	private void isValid() {
 		// is actualGlucoseLevel in valid range?
-		if (this.actualBodyTemperature > this.validRange[0]
-				&& this.actualBodyTemperature < this.validRange[1]) {
+		if (this.actualBodyTemperature >= this.validRange[0]
+				&& this.actualBodyTemperature <= this.validRange[1]) {
 			setStatus("normal");
 			// is actualGlucoseLevel too low?
 		} else if (this.actualBodyTemperature < this.validRange[0]) {
