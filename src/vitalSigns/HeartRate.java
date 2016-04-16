@@ -11,12 +11,12 @@ public class HeartRate {
 	/** 
 	 * The <em>actualHeartRate</em> variable used to represent the patient's heart-rate.
 	 */
-	private float actualHeartRate;
+	private int actualHeartRate;
 	/**
 	 * The <em>validRange</em> array used to represent the range of valid heart rates for
 	 * this sensor.
 	 */
-	private float[] validRange = new float[2];
+	private int[] validRange = new int[2];
 	/**
 	 * The <em>status</em> variable used to represent if the sensor reads that the heart-rate
 	 * is too low, normal, or too high.
@@ -32,7 +32,7 @@ public class HeartRate {
 	 * 70f will be the absolute minimum reading and 200f will be the absolute maximum reading.
 	 */
 	public HeartRate() {
-		this(70f, 200f, 100f, 170f);
+		this(70, 200, 100, 170);
 	}
 	
 	/**
@@ -44,10 +44,10 @@ public class HeartRate {
 	 * @param validRangeMinimum <em>float</em> The minimum value of the valid range
 	 * @param validRangeMaximum <em>float</em> The maximum value of the valid range
 	 */
-	public HeartRate(float actualMinimum, 
-					 float actualMaximum, 
-					 float validRangeMinimum,
-					 float validRangeMaximum) {
+	public HeartRate(int actualMinimum, 
+					 int actualMaximum, 
+					 int validRangeMinimum,
+					 int validRangeMaximum) {
 		// set valid range
 		this.validRange[0] = validRangeMinimum;
 		this.validRange[1] = validRangeMaximum;
@@ -56,7 +56,7 @@ public class HeartRate {
 		 * (rand * (max - min)) + min
 		 * uses Math.random(), which returns double, so cast to float after all calculations
 		 */
-		this.actualHeartRate = (float)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
+		this.actualHeartRate = (int)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
 		// set status based on validity
 		isValid();
 	}
@@ -84,7 +84,7 @@ public class HeartRate {
 	 * Setter for <em>actualHeartRate</em>
 	 * @param actualHeartRate The reading of the heart-rate sensor
 	 */
-	public void setActualHeartRate(float actualHeartRate) {
+	public void setActualHeartRate(int actualHeartRate) {
 		this.actualHeartRate = actualHeartRate;
 	}
 	
@@ -100,7 +100,7 @@ public class HeartRate {
 	 * Setter for <em>validRange</em> by float array
 	 * @param validRange The range of valid heart-rates for this sensor
 	 */
-	public void setValidRange(float[] validRange) {
+	public void setValidRange(int[] validRange) {
 		this.validRange = validRange;
 	}
 	
@@ -109,12 +109,12 @@ public class HeartRate {
 	 * @param minimumValidRange The minimum number of the validRange
 	 * @param maximumValidRange The maximum number of the validRange
 	 */
-	public void setValidRange(float minimumValidRange, float maximumValidRange) {
+	public void setValidRange(int minimumValidRange, int maximumValidRange) {
 		this.validRange[0] = minimumValidRange;
 		this.validRange[1] = maximumValidRange;
 	}
 	
-	public float[] getValidRange() {
+	public int[] getValidRange() {
 		return validRange;
 	}
 	

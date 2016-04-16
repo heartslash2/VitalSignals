@@ -3,7 +3,7 @@ package vitalSigns;
 public class BodyTemperature {
 
 	private float actualBodyTemperature;
-	private float[] validRange;
+	private float[] validRange = new float[2];
 	private String status;
 	
 	public BodyTemperature() {
@@ -11,11 +11,11 @@ public class BodyTemperature {
 		this(97, 99, 91, 105);
 	}
 	
-	public BodyTemperature(int actualMinimum, int actualMaximum,
-			int validRangeMinimum, int validRangeMaximum) {
+	public BodyTemperature(float actualMinimum, float actualMaximum,
+			float validRangeMinimum, float validRangeMaximum) {
 		this.validRange[0] = validRangeMinimum;
 		this.validRange[1] = validRangeMaximum;
-		this.actualBodyTemperature = (int)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
+		this.actualBodyTemperature = (float)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
 		isValid();
 	}
 	

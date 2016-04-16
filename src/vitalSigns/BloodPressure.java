@@ -2,13 +2,12 @@ package vitalSigns;
 
 public class BloodPressure {
 
-	private int[] actualBloodPressure;
-	private int[][] validRange;
+	private int[] actualBloodPressure = new int[2];
+	private int[][] validRange = new int[2][2];
 	private String status;
 
 	public BloodPressure() {
-		// http://www.bloodpressureuk.org/BloodPressureandyou/Thebasics/Bloodpressurechart
-		this(70, 190, 40, 100, 90, 120, 60, 80);
+		this(75, 160, 40, 100, 105, 130, 60, 80);
 	}
 
 	public BloodPressure(int actualSystolicMinimum, int actualSystolicMaximum,
