@@ -18,6 +18,7 @@ public class Client {
 				System.out.println(answer);
 				s.close();
 			} // end 100 integer loop
+			System.out.println("End of data stream.");
 		// close Client
 		System.exit(0);
 	} // end main

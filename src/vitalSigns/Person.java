@@ -89,11 +89,11 @@ public class Person {
 		}
 		// check heart rate
 		if (heartRateStatus.equals("normal")) {
-			health += "normal$";
+			health += "normal";
 		} else if (heartRateStatus.equals("low")) {
-			health += ("low " + this.heartRate.getActualHeartRate() + "$");
+			health += ("low " + this.heartRate.getActualHeartRate() + "");
 		} else if (heartRateStatus.equals("high")) {
-			health += ("high " + this.heartRate.getActualHeartRate() + "$");
+			health += ("high " + this.heartRate.getActualHeartRate() + "");
 		}
 
 		return health;

@@ -44,6 +44,8 @@ public class TestCase {
                     }
                 }
                 System.out.println("All vitals sent");
+                in.close();
+                break;
             }
         }
 	}
