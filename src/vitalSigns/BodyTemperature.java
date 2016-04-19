@@ -8,7 +8,14 @@ public class BodyTemperature {
 	
 	public BodyTemperature() {
 		// https://www.nlm.nih.gov/medlineplus/ency/article/001982.htm
-		this(97, 99, 91, 105);
+		this(91, 104, 97, 99);
+	}
+	
+	public BodyTemperature(float temperature) {
+		this.validRange[0] = 97;
+		this.validRange[1] = 99;
+		this.actualBodyTemperature = temperature;
+		isValid();
 	}
 	
 	public BodyTemperature(float actualMinimum, float actualMaximum,

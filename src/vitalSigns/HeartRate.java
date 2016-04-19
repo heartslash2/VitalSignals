@@ -32,7 +32,14 @@ public class HeartRate {
 	 * 70 will be the absolute minimum reading and 200 will be the absolute maximum reading.
 	 */
 	public HeartRate() {
-		this(70, 200, 100, 170);
+		this(30, 120, 65, 85);
+	}
+	
+	public HeartRate(int heartRate) {
+		this.validRange[0] = 65;
+		this.validRange[1] = 85;
+		this.actualHeartRate = heartRate;
+		isValid();
 	}
 	
 	/**

@@ -9,6 +9,16 @@ public class BloodPressure {
 	public BloodPressure() {
 		this(75, 160, 40, 100, 105, 130, 60, 80);
 	}
+	
+	public BloodPressure(int systolic, int diastolic) {
+		this.validRange[0][0] = 105;
+		this.validRange[0][1] = 130;
+		this.validRange[1][0] = 60;
+		this.validRange[1][1] = 80;
+		this.actualBloodPressure[0] = systolic;
+		this.actualBloodPressure[1] = diastolic;
+		isValid();
+	}
 
 	public BloodPressure(int actualSystolicMinimum, int actualSystolicMaximum,
 			int actualDiastolicMinimum, int actualDiastolicMaximum,

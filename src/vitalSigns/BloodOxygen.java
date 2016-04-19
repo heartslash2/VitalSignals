@@ -6,8 +6,15 @@ public class BloodOxygen {
 	private int[] validRange = new int[2];
 	private String status;
 
-	BloodOxygen() {
-		this(95, 100, 80, 100);
+	public BloodOxygen() {
+		this(80, 100, 94, 98);
+	}
+	
+	public BloodOxygen(int bloodOxygen) {
+		this.validRange[0] = 94;
+		this.validRange[1] = 98;
+		this.actualBloodOxygen = bloodOxygen;
+		isValid();
 	}
 
 	public BloodOxygen(int actualMinimum, int actualMaximum, int validRangeMinimum, int validRangeMaximum) {

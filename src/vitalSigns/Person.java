@@ -7,7 +7,7 @@ public class Person {
 	private BodyTemperature bodyTemperature;
 	private GlucoseLevel glucoseLevel;
 	private HeartRate heartRate;
-	
+
 	public Person() {
 		bloodOxygen = new BloodOxygen();
 		bloodPressure = new BloodPressure();
@@ -15,7 +15,16 @@ public class Person {
 		glucoseLevel = new GlucoseLevel();
 		heartRate = new HeartRate();
 	}
-	
+
+	public Person(int oxygen, int systolic, int diastolic, float temperature,
+			int glucose, int heartRate) {
+		this.bloodOxygen = new BloodOxygen(oxygen);
+		this.bloodPressure = new BloodPressure(systolic, diastolic);
+		this.bodyTemperature = new BodyTemperature(temperature);
+		this.glucoseLevel = new GlucoseLevel(glucose);
+		this.heartRate = new HeartRate(heartRate);
+	}
+
 	public String checkHealth() {
 		// to send to hospital
 		String health = "";
@@ -25,7 +34,7 @@ public class Person {
 		String bodyTemperatureStatus = this.bodyTemperature.getStatus();
 		String glucoseLevelStatus = this.glucoseLevel.getStatus();
 		String heartRateStatus = this.heartRate.getStatus();
-//		System.out.println(bloodPressureStatus);
+		// System.out.println(bloodPressureStatus);
 		// check blood oxygen
 		if (bloodOxygenStatus.equals("normal")) {
 			health += "normal, ";
@@ -38,29 +47,29 @@ public class Person {
 		if (bloodPressureStatus.equals("normal/normal")) {
 			health += "normal, ";
 		} else if (bloodPressureStatus.equals("normal/low")) {
-			health += ("low " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("low " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("normal/high")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("low/normal")) {
-			health += ("low " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("low " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("low/low")) {
-			health += ("low " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("low " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("low/high")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("high/normal")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("high/low")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		} else if (bloodPressureStatus.equals("high/high")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0] + "/" +
-					this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
+					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
 		}
 		// check body temperature
 		if (bodyTemperatureStatus.equals("normal")) {
@@ -86,8 +95,8 @@ public class Person {
 		} else if (heartRateStatus.equals("high")) {
 			health += ("high " + this.heartRate.getActualHeartRate() + "$");
 		}
-		
+
 		return health;
 	}
-	
+
 }

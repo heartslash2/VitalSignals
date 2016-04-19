@@ -8,7 +8,14 @@ public class GlucoseLevel {
 
 	public GlucoseLevel() {
 		// http://www.webmd.com/diabetes/guide/normal-blood-sugar-levels-chart-adults
-		this(40, 210, 70, 180);
+		this(35, 150, 75, 110);
+	}
+	
+	public GlucoseLevel(int glucoseLevel) {
+		this.validRange[0] = 75;
+		this.validRange[1] = 110;
+		this.actualGlucoseLevel = glucoseLevel;
+		isValid();
 	}
 
 	public GlucoseLevel(int actualMinimum, int actualMaximum, int validRangeMinimum, int validRangeMaximum) {
