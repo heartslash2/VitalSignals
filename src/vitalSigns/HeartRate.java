@@ -25,11 +25,11 @@ public class HeartRate {
 	
 	/**
 	 * Simulate a heart-rate sensor for a general 20 year old. This just calls the constructor
-	 * using two floats, 100f and 170f, as demonstrated by 
+	 * using two floats, 100 and 170, as demonstrated by 
 	 * http://www.heart.org/HEARTORG/HealthyLiving/PhysicalActivity/FitnessBasics/Target-Heart-Rates_UCM_434341_Article.jsp#.Vw1s6_nBzGc<br>
 	 * This range is 50% to 85% heart-rate, which is considered normal. The simulation will go
 	 * to 100%, so a 15% range is used on both sides to allow for theoretical readings. Thus,
-	 * 70f will be the absolute minimum reading and 200f will be the absolute maximum reading.
+	 * 70 will be the absolute minimum reading and 200 will be the absolute maximum reading.
 	 */
 	public HeartRate() {
 		this(70, 200, 100, 170);
@@ -39,10 +39,10 @@ public class HeartRate {
 	 * Simulate a heart-rate sensor by passing in minimum and maximum values for
 	 * a random number generator to create a random number in the range [min,max].<br>
 	 * Note that this includes both min and max as possible values.
-	 * @param actualMinimum <em>float</em> A simulated heart-rate minimum (outside validRange)
-	 * @param actualMaximum <em>float</em> A simulated heart-rate maximum (outside validRange)
-	 * @param validRangeMinimum <em>float</em> The minimum value of the valid range
-	 * @param validRangeMaximum <em>float</em> The maximum value of the valid range
+	 * @param actualMinimum A simulated heart-rate minimum (outside validRange)
+	 * @param actualMaximum A simulated heart-rate maximum (outside validRange)
+	 * @param validRangeMinimum The minimum value of the valid range
+	 * @param validRangeMaximum The maximum value of the valid range
 	 */
 	public HeartRate(int actualMinimum, 
 					 int actualMaximum, 
