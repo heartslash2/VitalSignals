@@ -40,7 +40,7 @@ public class Person {
 		float temperature = this.bodyTemperature.getActualBodyTemperature();
 		int glucose = this.glucoseLevel.getActualGlucoseLevel();
 		int heart = this.heartRate.getActualHeartRate();
-		
+
 		// check blood oxygen
 		if (bloodOxygenStatus.equals("normal")) {
 			health += "normal, ";
@@ -61,29 +61,53 @@ public class Person {
 		if (bloodPressureStatus.equals("normal/normal")) {
 			health += "normal, ";
 		} else if (bloodPressureStatus.equals("normal/low")) {
-			health += ("low " + pressure[0]
-					+ "/" + pressure[1] + ", ");
+			if (pressure[1] < 40) {
+				health += ("error, ");
+			} else {
+				health += ("low " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("normal/high")) {
-			health += ("high " + pressure[0]
-					+ "/" + pressure[1] + ", ");
+			if (pressure[1] > 100) {
+				health += ("error, ");
+			} else {
+				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("low/normal")) {
-			health += ("low " + pressure[0]
-					+ "/" + pressure[1] + ", ");
+			if (pressure[0] < 70) {
+				health += ("error, ");
+			} else {
+				health += ("low " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("low/low")) {
-			health += ("low " + pressure[0]
-					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			if (pressure[0] < 70 | pressure[1] < 40) {
+				health += ("error, ");
+			} else {
+				health += ("low " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("low/high")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
-					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			if (pressure[0] < 70 | pressure[1] > 100) {
+				health += ("error, ");
+			} else {
+				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("high/normal")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
-					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			if (pressure[0] > 190) {
+				health += ("error, ");
+			} else {
+				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("high/low")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
-					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			if (pressure[0] > 190 | pressure[1] < 40) {
+				health += ("error, ");
+			} else {
+				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		} else if (bloodPressureStatus.equals("high/high")) {
-			health += ("high " + this.bloodPressure.getActualBloodPressure()[0]
-					+ "/" + this.bloodPressure.getActualBloodPressure()[1] + ", ");
+			if (pressure[0] > 190 | pressure[1] > 100) {
+				health += ("error, ");
+			} else {
+				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
+			}
 		}
 		// check body temperature
 		if (bodyTemperatureStatus.equals("normal")) {
