@@ -79,13 +79,13 @@ public class Person {
 				health += ("low " + pressure[0] + "/" + pressure[1] + ", ");
 			}
 		} else if (bloodPressureStatus.equals("low/low")) {
-			if (pressure[0] < 70 | pressure[1] < 40) {
+			if (pressure[0] < 70 || pressure[1] < 40) {
 				health += ("error, ");
 			} else {
 				health += ("low " + pressure[0] + "/" + pressure[1] + ", ");
 			}
 		} else if (bloodPressureStatus.equals("low/high")) {
-			if (pressure[0] < 70 | pressure[1] > 100) {
+			if (pressure[0] < 70 || pressure[1] > 100) {
 				health += ("error, ");
 			} else {
 				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
@@ -97,13 +97,13 @@ public class Person {
 				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
 			}
 		} else if (bloodPressureStatus.equals("high/low")) {
-			if (pressure[0] > 190 | pressure[1] < 40) {
+			if (pressure[0] > 190 || pressure[1] < 40) {
 				health += ("error, ");
 			} else {
 				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");
 			}
 		} else if (bloodPressureStatus.equals("high/high")) {
-			if (pressure[0] > 190 | pressure[1] > 100) {
+			if (pressure[0] > 190 || pressure[1] > 100) {
 				health += ("error, ");
 			} else {
 				health += ("high " + pressure[0] + "/" + pressure[1] + ", ");

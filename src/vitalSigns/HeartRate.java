@@ -1,8 +1,7 @@
 package vitalSigns;
 
-
 /**
- * The <em>actualHeartRate</em> class is used to represent a heart-rate sensor. 
+ * The <em>HeartRate</em> class is used to represent a heart-rate sensor. 
  * @author Jonathan McMeans (mcmeans.4@wright.edu)
  *
  */
@@ -13,10 +12,10 @@ public class HeartRate {
 	 */
 	private int actualHeartRate;
 	/**
-	 * The <em>validRange</em> array used to represent the range of valid heart rates for
+	 * The <em>normalRange</em> array used to represent the range of normal heart rates for
 	 * this sensor.
 	 */
-	private int[] validRange = new int[2];
+	private int[] normalRange = new int[2];
 	/**
 	 * The <em>status</em> variable used to represent if the sensor reads that the heart-rate
 	 * is too low, normal, or too high.
@@ -24,65 +23,69 @@ public class HeartRate {
 	private String status;
 	
 	/**
-	 * Simulate a heart-rate sensor for a general 20 year old. This just calls the constructor
-	 * using two floats, 100 and 170, as demonstrated by 
-	 * http://www.heart.org/HEARTORG/HealthyLiving/PhysicalActivity/FitnessBasics/Target-Heart-Rates_UCM_434341_Article.jsp#.Vw1s6_nBzGc<br>
-	 * This range is 50% to 85% heart-rate, which is considered normal. The simulation will go
-	 * to 100%, so a 15% range is used on both sides to allow for theoretical readings. Thus,
-	 * 70 will be the absolute minimum reading and 200 will be the absolute maximum reading.
+	 * Simulate a heart-rate sensor. This creates a heart-rate within the range [30, 120] with a
+	 * normal range of [65, 85]. 
 	 */
 	public HeartRate() {
+		// (low range, high range, low normal, high normal)
 		this(30, 120, 65, 85);
 	}
 	
+	/**
+	 * Simulate a heart-rate sensor. This creates a heart rate of <em>heartRate</em> with a 
+	 * normal range of [65, 85].
+	 * @param heartRate The heart-rate that a sensor would display.
+	 */
 	public HeartRate(int heartRate) {
-		this.validRange[0] = 65;
-		this.validRange[1] = 85;
+		// set normal range
+		this.normalRange[0] = 65;
+		this.normalRange[1] = 85;
 		this.actualHeartRate = heartRate;
-		isValid();
+		// check if the input heartRate is normal
+		isNormal();
 	}
 	
 	/**
 	 * Simulate a heart-rate sensor by passing in minimum and maximum values for
 	 * a random number generator to create a random number in the range [min,max].<br>
 	 * Note that this includes both min and max as possible values.
-	 * @param actualMinimum A simulated heart-rate minimum (outside validRange)
-	 * @param actualMaximum A simulated heart-rate maximum (outside validRange)
-	 * @param validRangeMinimum The minimum value of the valid range
-	 * @param validRangeMaximum The maximum value of the valid range
+	 * @param actualMinimum A simulated heart-rate minimum (outside normalRange)
+	 * @param actualMaximum A simulated heart-rate maximum (outside normalRange)
+	 * @param normalRangeMinimum The minimum value of the normal range
+	 * @param normalRangeMaximum The maximum value of the normal range
 	 */
 	public HeartRate(int actualMinimum, 
 					 int actualMaximum, 
-					 int validRangeMinimum,
-					 int validRangeMaximum) {
-		// set valid range
-		this.validRange[0] = validRangeMinimum;
-		this.validRange[1] = validRangeMaximum;
+					 int normalRangeMinimum,
+					 int normalRangeMaximum) {
+		// set normal range
+		this.normalRange[0] = normalRangeMinimum;
+		this.normalRange[1] = normalRangeMaximum;
 		/* generate random number in range [actualMinimum, actualMaximum]
 		 * the number is generated using the standard formula for ranges, that is
 		 * (rand * (max - min)) + min
-		 * uses Math.random(), which returns double, so cast to float after all calculations
+		 * uses Math.random(), which returns double, so cast to int after all calculations
 		 */
 		this.actualHeartRate = (int)((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
-		// set status based on validity
-		isValid();
+		// check if the simulated heartRate is normal
+		isNormal();
 	}
 	
 	/**
-	 * This method will determine if the <em>actualHeartRate</em> is inside the <em>validRange</em> 
+	 * This method will determine if the <em>actualHeartRate</em> is inside the <em>normalRange</em> 
 	 * or if the <em>actualHeartRate</em> is too high or low. There is no return; instead, this
 	 * method sets the status value to either "low", "normal", or "high"
 	 */
-	private void isValid() {
-		// is actualHeartRate in valid range?
-		if (this.actualHeartRate >= this.validRange[0] 
-				&& this.actualHeartRate <= this.validRange[1]) {
+	private void isNormal() {
+		// is actualHeartRate in normal range?
+		if (this.actualHeartRate >= this.normalRange[0] 
+				&& this.actualHeartRate <= this.normalRange[1]) {
 			setStatus("normal");
 		// is actualHeartRate too low?
-		} else if (this.actualHeartRate < this.validRange[0]) {
+		} else if (this.actualHeartRate < this.normalRange[0]) {
 			setStatus("low");
 		// is actualHeartRate too high?
-		} else if (this.actualHeartRate > this.validRange[1]) {
+		} else if (this.actualHeartRate > this.normalRange[1]) {
 			setStatus("high");
 		}
 	}
@@ -104,25 +107,25 @@ public class HeartRate {
 	}
 	
 	/**
-	 * Setter for <em>validRange</em> by float array
-	 * @param validRange The range of valid heart-rates for this sensor
+	 * Setter for <em>normalRange</em> by float array
+	 * @param normalRange The range of normal heart-rates for this sensor
 	 */
-	public void setValidRange(int[] validRange) {
-		this.validRange = validRange;
+	public void setNormalRange(int[] normalRange) {
+		this.normalRange = normalRange;
 	}
 	
 	/**
-	 * Setter for <em>validRange</em> by float values
-	 * @param minimumValidRange The minimum number of the validRange
-	 * @param maximumValidRange The maximum number of the validRange
+	 * Setter for <em>normalRange</em> by float values
+	 * @param minimumNormalRange The minimum number of the normalRange
+	 * @param maximumNormalRange The maximum number of the normalRange
 	 */
-	public void setValidRange(int minimumValidRange, int maximumValidRange) {
-		this.validRange[0] = minimumValidRange;
-		this.validRange[1] = maximumValidRange;
+	public void setNormalRange(int minimumNormalRange, int maximumNormalRange) {
+		this.normalRange[0] = minimumNormalRange;
+		this.normalRange[1] = maximumNormalRange;
 	}
 	
-	public int[] getValidRange() {
-		return validRange;
+	public int[] getNormalRange() {
+		return normalRange;
 	}
 	
 	public void setStatus(String status) {
