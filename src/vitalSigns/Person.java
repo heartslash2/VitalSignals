@@ -16,8 +16,7 @@ public class Person {
 		heartRate = new HeartRate();
 	}
 
-	public Person(int oxygen, int systolic, int diastolic, float temperature,
-			int glucose, int heartRate) {
+	public Person(int oxygen, int systolic, int diastolic, float temperature, int glucose, int heartRate) {
 		this.bloodOxygen = new BloodOxygen(oxygen);
 		this.bloodPressure = new BloodPressure(systolic, diastolic);
 		this.bodyTemperature = new BodyTemperature(temperature);
