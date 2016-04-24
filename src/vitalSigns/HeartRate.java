@@ -38,7 +38,7 @@ public class HeartRate {
 	 * <em>heartRate</em> with a normal range of [65, 85].
 	 * 
 	 * @param heartRate
-	 *            The heart-rate that a sensor would display.
+	 *            The heart-rate that a sensor would read.
 	 */
 	public HeartRate(int heartRate) {
 		// set normal range
@@ -51,8 +51,8 @@ public class HeartRate {
 
 	/**
 	 * Simulate a heart-rate sensor by passing in minimum and maximum values for
-	 * a random number generator to create a random number in the range
-	 * [min,max].<br>
+	 * a random number generator to create a random number in the range [min,
+	 * max].<br>
 	 * Note that this includes both min and max as possible values.
 	 * 
 	 * @param actualMinimum
@@ -140,14 +140,31 @@ public class HeartRate {
 		this.normalRange[1] = maximumNormalRange;
 	}
 
+	/**
+	 * Getter for <em>normalRange</em>
+	 * 
+	 * @return <em>normalRange</em> the range of normal heart-rates for this
+	 *         sensor
+	 */
 	public int[] getNormalRange() {
 		return normalRange;
 	}
 
+	/**
+	 * Setter for <em>status</em>
+	 * 
+	 * @param status
+	 *            the health status normal/low/high
+	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
+	/**
+	 * Getter for <em>status</em>
+	 * 
+	 * @return <em>status</em> the health status normal/low/high
+	 */
 	public String getStatus() {
 		return status;
 	}
