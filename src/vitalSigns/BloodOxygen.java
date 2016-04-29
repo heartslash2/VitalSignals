@@ -72,7 +72,7 @@ public class BloodOxygen {
 		 * generate random number in range [actualMinimum, actualMaximum] the
 		 * number is generated using the standard formula for ranges, that is
 		 * (rand * (max - min)) + min uses Math.random(), which returns double,
-		 * so cast to float after all calculations
+		 * so cast to int after all calculations
 		 */
 		this.actualBloodOxygen = (int) ((Math.random() * (actualMaximum - actualMinimum)) + actualMinimum);
 		// check if the simulated bloodOxygen is normal
