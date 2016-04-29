@@ -128,7 +128,7 @@ public class GlucoseLevel {
 	}
 
 	/**
-	 * Setter for <em>normalRange</em> by float values
+	 * Setter for <em>normalRange</em> by int values
 	 * 
 	 * @param minimumNormalRange
 	 *            The minimum number of the normalRange
